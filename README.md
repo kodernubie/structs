@@ -1,3 +1,9 @@
+This is forked to add new feature and fix bugs.
+
+Feature so far :
+* Nested param in Map method so it can generate map only contains basic type without change original struct source code
+
+
 # Archived project. No maintenance. 
 
 This project is not maintained anymore and is archived. Feel free to fork and
