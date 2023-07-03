@@ -460,14 +460,28 @@ func strctVal(s interface{}) reflect.Value {
 
 // Map converts the given struct to a map[string]interface{}. For more info
 // refer to Struct types Map() method. It panics if s's kind is not struct.
-func Map(s interface{}) map[string]interface{} {
-	return New(s).Map()
+func Map(s interface{}, nested ...bool) map[string]interface{} {
+
+	targetNested := true
+
+	if len(nested) > 0 {
+		targetNested = nested[0]
+	}
+
+	return New(s).Map(targetNested)
 }
 
 // FillMap is the same as Map. Instead of returning the output, it fills the
 // given map.
-func FillMap(s interface{}, out map[string]interface{}) {
-	New(s).FillMap(out)
+func FillMap(s interface{}, out map[string]interface{}, nested ...bool) {
+
+	targetNested := true
+
+	if len(nested) > 0 {
+		targetNested = nested[0]
+	}
+
+	New(s).FillMap(out, targetNested)
 }
 
 // Values converts the given struct to a []interface{}. For more info refer to
